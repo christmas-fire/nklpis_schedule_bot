@@ -1,0 +1,23 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Сборка проекта
+    cmds:
+      - go build -o nklpis_schedule_bot.exe ./cmd/main.go
+
+  run:
+    desc: Запуск бота
+    cmds:
+      - go run ./cmd/main.go
+
+  logs:
+    desc: Просмотр логов
+    cmds:
+      - pwsh -Command "Get-Content app.log"
+
+  clean:
+    desc: Очистка скомпилированных файлов
+    cmds:
+      - pwsh -Command "Remove-Item app.log" 
+      - pwsh -Command "Remove-Item nklpis_schedule_bot.exe"
